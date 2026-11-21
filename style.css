@@ -1,45 +1,86 @@
-/* PENGATURAN DASAR & VARIABEL WARNA */
+/* ==========================================================================
+   UNSLOPPED Y2K STYLESHEET - ADINDA NAJWA JONEP
+   Aesthetic: Authentic Cyber Y2K / Millennium Digital Archive
+   Craft: Strict 4px Grid, Titanium & Holographic Chrome Accents, Monospace Meta,
+          Tactile Borders, and High-Contrast Deliberate Typography.
+   ========================================================================== */
+
+/* 1. VARIABEL TEMA & Y2K DESIGN TOKENS */
 :root {
-    --primary: #4f46e5;
+    /* Y2K Chromatic & Titanium Palette (Light Mode) */
+    --primary: #4338ca;                  /* Deep Indigo Cyber */
     --primary-light: #6366f1;
-    --primary-glow: rgba(79, 70, 229, 0.18);
-    --secondary: #06b6d4;
-    --text-dark: #0f172a;
-    --text-muted: #64748b;
-    --bg-page: #f8fafc;
-    --card-bg: #ffffff;
-    --card-sub-bg: #f8fafc;
-    --nav-bg: rgba(255, 255, 255, 0.85);
-    --border-color: #e2e8f0;
-    --icon-bg: #ede9fe;
+    --primary-hover: #3730a3;
+    --accent-cyan: #0284c7;              /* Millennium Sky */
+    --accent-lilac: #7e22ce;             /* Retro Lilac */
+    --accent-pink: #db2777;              /* Cyber Pink */
+    
+    --text-dark: #0f172a;                /* Deep Obsidian */
+    --text-muted: #475569;               /* Slate Neutral */
+    --text-dim: #64748b;                 /* Muted Meta */
+    
+    --bg-page: #f8fafc;                  /* Titanium Ice Canvas */
+    --grid-line: rgba(148, 163, 184, 0.18); /* Blueprint Millimeter Grid */
+    
+    --card-bg: #ffffff;                  /* Pearl Surface */
+    --card-sub-bg: #f1f5f9;              /* Recessed Well Surface */
+    --nav-bg: rgba(248, 250, 252, 0.92);
+    
+    --border-color: #cbd5e1;             /* Sharp 1px Y2K Frame */
+    --border-subtle: #e2e8f0;
+    --border-highlight: #6366f1;
+    
+    --icon-bg: #e0e7ff;
     --status-bg: #ecfdf5;
-    --status-color: #047857;
+    --status-color: #065f46;
     --status-border: #a7f3d0;
     --social-bg: #f1f5f9;
-    --radius-lg: 20px;
-    --radius-md: 12px;
+    
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --radius-sm: 6px;
+    --radius-pill: 999px;
+    
+    --shadow-y2k: 0 4px 0 0 #cbd5e1;
+    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.05), 0 10px 25px -5px rgba(99, 102, 241, 0.06);
+    --font-mono: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
 }
 
-/* TEMA GELAP (DARK MODE) */
+/* TEMA GELAP (DARK MODE - CYBER SLATE & NEON CHROME) */
 body.dark-mode {
-    --primary: #6366f1;
-    --primary-light: #818cf8;
-    --primary-glow: rgba(99, 102, 241, 0.35);
-    --secondary: #22d3ee;
+    --primary: #818cf8;
+    --primary-light: #a5b4fc;
+    --primary-hover: #6366f1;
+    --accent-cyan: #38bdf8;
+    --accent-lilac: #c084fc;
+    --accent-pink: #f472b6;
+    
     --text-dark: #f8fafc;
     --text-muted: #94a3b8;
-    --bg-page: #0f172a;
-    --card-bg: #1e293b;
-    --card-sub-bg: #0f172a;
-    --nav-bg: rgba(15, 23, 42, 0.85);
-    --border-color: #334155;
-    --icon-bg: #312e81;
-    --status-bg: rgba(16, 185, 129, 0.15);
+    --text-dim: #64748b;
+    
+    --bg-page: #0a0d14;                  /* Deep Cyber Void */
+    --grid-line: rgba(99, 102, 241, 0.07);
+    
+    --card-bg: #111622;                  /* Dark Titanium */
+    --card-sub-bg: #0c101a;              /* Inset Console */
+    --nav-bg: rgba(10, 13, 20, 0.92);
+    
+    --border-color: #1e293b;
+    --border-subtle: #172033;
+    --border-highlight: #818cf8;
+    
+    --icon-bg: #1e1e38;
+    --status-bg: rgba(6, 95, 70, 0.25);
     --status-color: #34d399;
-    --status-border: rgba(16, 185, 129, 0.3);
-    --social-bg: #334155;
+    --status-border: rgba(52, 211, 153, 0.3);
+    --social-bg: #141b2d;
+    
+    --shadow-y2k: 0 4px 0 0 #1e293b;
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5), 0 10px 25px -5px rgba(0, 0, 0, 0.4);
 }
 
+/* 2. BASE RESETS & RETRO GRID CANVAS */
 * {
     margin: 0;
     padding: 0;
@@ -51,75 +92,28 @@ html {
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-page);
     color: var(--text-dark);
     position: relative;
     overflow-x: hidden;
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-    /* Y2K RETRO CYBER GRID */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    
+    /* Authentic Y2K Millimeter Blueprint Grid */
     background-image: 
-        linear-gradient(to right, rgba(192, 132, 252, 0.12) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(56, 189, 248, 0.1) 1px, transparent 1px);
-    background-size: 34px 34px;
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 24px 24px;
     background-position: center top;
 }
 
-body.dark-mode {
-    background-image: 
-        linear-gradient(to right, rgba(168, 85, 247, 0.12) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
-}
-
-/* HIASAN BACKGROUND GLOW (Y2K HOLOGRAPHIC BUBBLEGUM ORBS) */
+/* Hide lazy blurred glow blobs */
 .bg-shape {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(85px);
-    z-index: -1;
-    opacity: 0.65;
-    pointer-events: none;
-    transition: background 0.3s ease;
-}
-.shape-1 {
-    width: 440px;
-    height: 440px;
-    background: radial-gradient(circle, rgba(244, 114, 182, 0.45) 0%, rgba(192, 132, 252, 0.35) 50%, transparent 75%);
-    top: -120px;
-    left: -120px;
-    animation: floatShape1 15s ease-in-out infinite alternate;
-}
-.shape-2 {
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(129, 140, 248, 0.35) 50%, transparent 75%);
-    bottom: 30px;
-    right: -90px;
-    animation: floatShape2 13s ease-in-out infinite alternate;
+    display: none !important;
 }
 
-@keyframes floatShape1 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(40px, 30px) scale(1.1); }
-}
-
-@keyframes floatShape2 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-35px, -25px) scale(1.08); }
-}
-
-body.dark-mode .shape-1 {
-    background: radial-gradient(circle, rgba(192, 132, 252, 0.32) 0%, rgba(147, 51, 234, 0.22) 60%, transparent 75%);
-    opacity: 0.45;
-}
-body.dark-mode .shape-2 {
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.32) 0%, rgba(59, 130, 246, 0.22) 60%, transparent 75%);
-    opacity: 0.45;
-}
-
-/* NAVBAR */
+/* 3. NAVBAR & RETRO CYBER HEADER */
 header {
     background-color: var(--nav-bg);
     backdrop-filter: blur(12px);
@@ -127,52 +121,56 @@ header {
     top: 0;
     z-index: 100;
     border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    animation: slideDownNav 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes slideDownNav {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .navbar {
-    max-width: 900px;
+    max-width: 880px;
     margin: auto;
-    padding: 16px 24px;
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--text-dark);
-    letter-spacing: -0.5px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
+.logo a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+/* Y2K Logo Badge: Clean metallic outline with retro star */
 .logo .highlight {
-    background: linear-gradient(135deg, #a855f7, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.15);
 }
 
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
 }
 
 .menu {
     display: flex;
-    gap: 24px;
+    gap: 6px;
     list-style: none;
 }
 
@@ -180,478 +178,389 @@ header {
     text-decoration: none;
     color: var(--text-muted);
     font-weight: 600;
-    font-size: 14px;
-    transition: color 0.2s ease;
-    padding-bottom: 2px;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
 }
 
-.menu a:hover,
+.menu a:hover {
+    color: var(--text-dark);
+    background-color: var(--card-sub-bg);
+    border-color: var(--border-color);
+}
+
 .menu a.active {
     color: var(--primary);
+    background-color: var(--card-sub-bg);
+    border-color: var(--border-color);
     font-weight: 700;
-    border-bottom: 2px solid var(--primary);
 }
 
-body.dark-mode .menu a:hover,
 body.dark-mode .menu a.active {
-    color: var(--primary-light);
-    border-bottom-color: var(--primary-light);
+    color: var(--accent-cyan);
+    border-color: var(--border-color);
 }
 
-/* TOMBOL TEMA (DARK / LIGHT) */
+/* THEME TOGGLE BUTTON (Y2K Mini Controller) */
 .theme-btn {
-    background: var(--card-sub-bg);
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
-    color: var(--text-dark);
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
+    color: var(--text-muted);
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
-    transition: all 0.3s ease;
+    font-size: 13px;
+    box-shadow: 0 2px 0 0 var(--border-color);
+    transition: all 0.15s ease;
 }
 
 .theme-btn:hover {
-    background-color: var(--primary);
-    color: white;
+    color: var(--text-dark);
     border-color: var(--primary);
-    transform: rotate(20deg) scale(1.08);
+    transform: translateY(-1px);
 }
 
-/* MAIN WRAPPER */
+.theme-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* 4. MAIN CONTAINER */
 main {
-    max-width: 780px;
-    margin: 40px auto 60px;
+    max-width: 800px;
+    margin: 32px auto 60px;
     padding: 0 20px;
 }
 
-/* KARTU PROFIL UTAMA (STYLE Y2K RETRO-CLEAN) */
+/* 5. PROFILE CARD (Authentic Y2K Window Frame) */
 .profile-card {
     background-color: var(--card-bg);
-    padding: 48px 40px;
+    padding: 36px 32px;
     border-radius: var(--radius-lg);
-    box-shadow: 0 16px 40px -10px rgba(192, 132, 252, 0.16), 
-                0 4px 16px rgba(56, 189, 248, 0.08);
-    border: 1px solid rgba(192, 132, 252, 0.35);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
     text-align: center;
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInUpCard 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
     position: relative;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-body.dark-mode .profile-card {
-    border-color: rgba(168, 85, 247, 0.35);
-    box-shadow: 0 16px 40px -10px rgba(147, 51, 234, 0.22), 
-                0 4px 16px rgba(6, 182, 212, 0.12);
-}
-
-/* Y2K FLOATING SPARKLE ACCENTS */
+/* Subtle Y2K Window Titlebar Accents */
 .profile-card::before {
-    content: '✦';
-    position: absolute;
-    top: -12px;
-    right: -10px;
-    font-size: 26px;
-    color: #c084fc;
-    pointer-events: none;
-    z-index: 2;
-    animation: y2kSparkle1 3.5s ease-in-out infinite alternate;
+    content: "✦ ADINDA_PROFILE // ARCHIVE.2026 ✦";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-dim);
+    letter-spacing: 0.12em;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--border-color);
 }
 
-.profile-card::after {
-    content: '✧';
-    position: absolute;
-    bottom: -10px;
-    left: -8px;
-    font-size: 22px;
-    color: #38bdf8;
-    pointer-events: none;
-    z-index: 2;
-    animation: y2kSparkle2 2.8s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes y2kSparkle1 {
-    0% { transform: scale(0.8) rotate(0deg); opacity: 0.5; filter: drop-shadow(0 0 4px rgba(192, 132, 252, 0.6)); }
-    50% { transform: scale(1.25) rotate(20deg); opacity: 1; filter: drop-shadow(0 0 10px rgba(192, 132, 252, 1)); }
-    100% { transform: scale(0.9) rotate(-10deg); opacity: 0.6; filter: drop-shadow(0 0 5px rgba(192, 132, 252, 0.7)); }
-}
-
-@keyframes y2kSparkle2 {
-    0% { transform: scale(0.9) rotate(0deg); opacity: 0.5; filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6)); }
-    50% { transform: scale(1.2) rotate(-15deg); opacity: 1; filter: drop-shadow(0 0 9px rgba(56, 189, 248, 1)); }
-    100% { transform: scale(0.8) rotate(10deg); opacity: 0.5; filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6)); }
-}
-
-@keyframes fadeInUpCard {
-    from {
-        opacity: 0;
-        transform: translateY(28px) scale(0.98);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* AVATAR DENGAN POP-IN ANIMATION & SPARKLE */
+/* AVATAR DENGAN FRAME Y2K RETRO */
 .avatar-wrapper {
     display: inline-block;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     position: relative;
-    animation: popInAvatar 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.12s both;
-}
-
-.avatar-wrapper::after {
-    content: '✦';
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    font-size: 18px;
-    color: #f472b6;
-    pointer-events: none;
-    z-index: 3;
-    animation: y2kMiniSparkle 2.2s ease-in-out infinite alternate;
-}
-
-@keyframes y2kMiniSparkle {
-    0% { transform: scale(0.7) rotate(0deg); opacity: 0.4; }
-    100% { transform: scale(1.2) rotate(15deg); opacity: 1; filter: drop-shadow(0 0 6px rgba(244, 114, 182, 0.9)); }
-}
-
-@keyframes popInAvatar {
-    0% {
-        opacity: 0;
-        transform: scale(0.3) rotate(-12deg);
-    }
-    70% {
-        transform: scale(1.08) rotate(3deg);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-    }
 }
 
 .avatar {
-    width: 105px;
-    height: 105px;
+    width: 108px;
+    height: 108px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 0 0 6px var(--card-bg), 0 8px 24px var(--primary-glow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--card-bg);
+    outline: 2px solid var(--primary);
+    box-shadow: 0 4px 12px rgba(67, 56, 202, 0.15);
     display: block;
+    transition: transform 0.2s ease, outline-color 0.2s ease;
 }
 
 div.avatar {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
+    background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 36px;
-    font-weight: 800;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: var(--font-mono);
 }
 
 .avatar:hover {
-    transform: scale(1.06) rotate(3deg);
+    outline-color: var(--accent-pink);
+    transform: scale(1.02);
 }
 
+/* HEADING & SUBTITLE */
 .profile-card h1 {
-    font-size: 24px;
-    font-weight: 800;
+    font-size: 26px;
+    font-weight: 700;
     color: var(--text-dark);
     margin-bottom: 6px;
-    letter-spacing: -0.5px;
-    animation: fadeInUpItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+    letter-spacing: -0.02em;
 }
 
 .subtitle {
     color: var(--text-muted);
-    font-size: 15px;
-    margin-bottom: 14px;
+    font-size: 14px;
+    margin-bottom: 16px;
     font-weight: 500;
-    animation: fadeInUpItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
 }
 
 .subtitle .divider {
-    color: #cbd5e1;
-    margin: 0 6px;
+    color: var(--border-color);
+    margin: 0 8px;
 }
 
 body.dark-mode .subtitle .divider {
-    color: #475569;
+    color: #334155;
 }
 
-/* STATUS BADGE DENGAN ANIMASI PULSE & ENTRANCE */
+/* STATUS BADGE (Y2K Retro System Tag) */
 .status-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: #ecfdf5;
-    color: #047857;
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 700;
-    border: 1px solid #a7f3d0;
+    background-color: var(--status-bg);
+    color: var(--status-color);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--status-border);
     margin-bottom: 24px;
-    animation: popInBadge 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.42s both;
-}
-
-@keyframes popInBadge {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+    text-transform: uppercase;
 }
 
 .status-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #10b981;
+    width: 6px;
+    height: 6px;
+    background-color: currentColor;
     border-radius: 50%;
-    position: relative;
 }
 
-.status-dot::after {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: #10b981;
-    opacity: 0.5;
-    animation: pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(0.6); opacity: 0.8; }
-    100% { transform: scale(1.8); opacity: 0; }
-}
-
-/* TOMBOL AKSI & MEDIA SOSIAL */
+/* TOMBOL AKSI & MEDSOS */
 .cta-actions {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    margin-bottom: 10px;
-    animation: fadeInUpItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    margin-bottom: 12px;
 }
 
 .btn-primary {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    color: white;
-    padding: 12px 28px;
-    font-size: 15px;
-    font-weight: 700;
-    font-family: inherit;
-    border: none;
-    border-radius: 999px;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
+    color: #ffffff;
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
     cursor: pointer;
     text-decoration: none;
-    box-shadow: 0 8px 20px var(--primary-glow);
-    transition: all 0.25s ease;
+    box-shadow: 0 3px 0 0 rgba(15, 23, 42, 0.2);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(79, 70, 229, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 0 0 rgba(15, 23, 42, 0.25);
 }
 
 .btn-primary:active {
-    transform: translateY(0);
+    transform: translateY(2px);
+    box-shadow: none;
 }
 
 .social-links {
     display: flex;
-    gap: 12px;
+    gap: 10px;
 }
 
 .social-btn {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background-color: var(--social-bg);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background-color: var(--card-sub-bg);
+    border: 1px solid var(--border-color);
     color: var(--text-muted);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 16px;
-    transition: all 0.2s ease;
+    font-size: 14px;
+    box-shadow: 0 2px 0 0 var(--border-color);
+    transition: all 0.15s ease;
 }
 
 .social-btn:hover {
-    background-color: var(--primary);
-    color: white;
-    transform: translateY(-3px);
+    background-color: var(--card-bg);
+    color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.social-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
 }
 
 .separator {
     border: none;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px dashed var(--border-color);
     margin: 32px 0;
 }
 
-/* GRID INFORMASI MAHASISWA */
+/* 6. GRID INFORMASI MAHASISWA (Cyber Info Cards) */
 .information {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 36px;
+    gap: 12px;
+    margin-bottom: 32px;
 }
 
 .info-card {
     background-color: var(--card-sub-bg);
     border: 1px solid var(--border-color);
-    padding: 16px 14px;
+    padding: 14px 16px;
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     gap: 12px;
     text-align: left;
-    transition: all 0.25s ease;
-}
-
-.info-card:nth-child(1) {
-    animation: fadeInUpItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.58s both;
-}
-.info-card:nth-child(2) {
-    animation: fadeInUpItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.68s both;
-}
-.info-card:nth-child(3) {
-    animation: fadeInUpItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.78s both;
+    position: relative;
+    transition: border-color 0.15s ease;
 }
 
 .info-card:hover {
-    background-color: var(--card-bg);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    transform: translateY(-3px);
-    border-color: var(--primary-light);
+    border-color: var(--primary);
 }
 
 .info-icon {
-    font-size: 22px;
-    color: var(--primary-light);
-    background-color: var(--icon-bg);
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
+    font-size: 16px;
+    color: var(--primary);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .info-icon {
+    color: var(--accent-cyan);
 }
 
 .info-card h3 {
-    font-size: 12px;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
     margin-bottom: 2px;
 }
 
 .info-card p {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-dark);
 }
 
-/* SECTION KONTEN */
+/* 7. SECTION KONTEN (Editorial & Bio) */
 .content-section {
     text-align: left;
-    margin-bottom: 34px;
-    animation: fadeInUpItem 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
-}
-
-@keyframes fadeInUpItem {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    margin-bottom: 32px;
 }
 
 .content-section h2 {
-    font-size: 19px;
-    font-weight: 800;
+    font-size: 18px;
+    font-weight: 700;
     margin-bottom: 14px;
     color: var(--text-dark);
     display: flex;
     align-items: center;
     gap: 10px;
+    letter-spacing: -0.01em;
 }
 
 .content-section h2 i {
-    color: var(--primary-light);
-    font-size: 18px;
+    color: var(--primary);
+    font-size: 15px;
+}
+
+body.dark-mode .content-section h2 i {
+    color: var(--accent-cyan);
 }
 
 .content-section p {
     color: var(--text-muted);
-    font-size: 15px;
-    line-height: 1.8;
+    font-size: 14px;
+    line-height: 1.75;
 }
 
-/* SKILLS BADGES */
+/* 8. SKILLS BADGES (Y2K Module Tags) */
 .skill-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .skill-pill {
     background: var(--card-sub-bg);
     color: var(--text-dark);
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     border: 1px solid var(--border-color);
-    transition: all 0.2s ease;
+    box-shadow: 0 1px 0 0 var(--border-color);
+    transition: all 0.15s ease;
     cursor: default;
 }
 
 .skill-pill i {
-    color: var(--primary-light);
+    color: var(--primary);
+    font-size: 13px;
+}
+
+body.dark-mode .skill-pill i {
+    color: var(--accent-cyan);
 }
 
 .skill-pill:hover {
-    background-color: var(--primary);
-    color: white;
+    background-color: var(--card-bg);
     border-color: var(--primary);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
-.skill-pill:hover i {
-    color: white;
-}
-
-/* PORTOFOLIO / PROYEK */
+/* 9. PORTOFOLIO / PROYEK (Cyber Catalog Cards) */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 14px;
 }
 
 .project-card {
@@ -659,31 +568,38 @@ body.dark-mode .subtitle .divider {
     border: 1px solid var(--border-color);
     padding: 20px;
     border-radius: var(--radius-md);
-    transition: all 0.25s ease;
+    position: relative;
+    box-shadow: 0 2px 0 0 var(--border-color);
+    transition: all 0.15s ease;
 }
 
 .project-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
     background-color: var(--card-bg);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-    transform: translateY(-3px);
-    border-color: var(--primary-light);
 }
 
 .project-tag {
     display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 10px;
+    font-family: var(--font-mono);
+    font-weight: 600;
     text-transform: uppercase;
-    color: var(--primary-light);
-    background-color: var(--icon-bg);
-    padding: 3px 8px;
-    border-radius: 6px;
+    letter-spacing: 0.06em;
+    color: var(--primary);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2px 6px;
+    border-radius: 4px;
     margin-bottom: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .project-tag {
+    color: var(--accent-cyan);
 }
 
 .project-card h4 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     margin-bottom: 6px;
     color: var(--text-dark);
@@ -695,43 +611,43 @@ body.dark-mode .subtitle .divider {
     color: var(--text-muted);
 }
 
-/* SECTION TOOLS MAHASISWA */
+/* 10. SECTION TOOLS MAHASISWA (Cyber Gadget / PDA) */
 .section-desc {
     color: var(--text-muted);
-    font-size: 14px;
+    font-size: 13px;
     margin-top: -6px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     line-height: 1.6;
 }
 
 .tools-tab-nav {
     display: flex;
-    gap: 10px;
+    gap: 6px;
     background-color: var(--card-sub-bg);
     padding: 6px;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     overflow-x: auto;
 }
 
 .tool-tab-btn {
     flex: 1;
-    min-width: 140px;
-    padding: 10px 16px;
+    min-width: 130px;
+    padding: 8px 14px;
     background: transparent;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 700;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-family: var(--font-mono);
+    font-weight: 600;
     color: var(--text-muted);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-family: inherit;
-    transition: all 0.25s ease;
+    transition: all 0.15s ease;
     white-space: nowrap;
 }
 
@@ -742,40 +658,35 @@ body.dark-mode .subtitle .divider {
 .tool-tab-btn.active {
     background: var(--card-bg);
     color: var(--primary);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border-color: var(--border-color);
+    box-shadow: 0 2px 0 0 var(--border-color);
 }
 
 body.dark-mode .tool-tab-btn.active {
-    color: var(--primary-light);
+    color: var(--accent-cyan);
 }
 
 .tool-tab-content {
     display: none;
-    animation: fadeIn 0.3s ease;
 }
 
 .tool-tab-content.active {
     display: block;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* 1. KALKULATOR IPK STYLES */
+/* KALKULATOR IPK */
 .gpa-card {
     background-color: var(--card-sub-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 24px;
+    padding: 22px;
 }
 
 .course-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 18px;
 }
 
 .course-row {
@@ -786,16 +697,16 @@ body.dark-mode .tool-tab-btn.active {
 }
 
 .tool-input, .tool-select {
-    padding: 10px 12px;
-    border-radius: 8px;
+    padding: 9px 12px;
+    border-radius: var(--radius-sm);
     border: 1px solid var(--border-color);
     background-color: var(--card-bg);
     color: var(--text-dark);
-    font-size: 14px;
+    font-size: 13px;
     font-family: inherit;
     width: 100%;
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.15s ease;
 }
 
 .tool-input:focus, .tool-select:focus {
@@ -803,111 +714,121 @@ body.dark-mode .tool-tab-btn.active {
 }
 
 .btn-delete-course {
-    width: 38px;
-    height: 38px;
-    border-radius: 8px;
-    background: #fee2e2;
-    color: #ef4444;
-    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-dim);
+    border: 1px solid var(--border-color);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    transition: all 0.2s ease;
+    font-size: 13px;
+    transition: all 0.15s ease;
 }
 
 .btn-delete-course:hover {
-    background: #ef4444;
-    color: white;
+    background: #fee2e2;
+    color: #b91c1c;
+    border-color: #fca5a5;
 }
 
-body.dark-mode .btn-delete-course {
-    background: rgba(239, 68, 68, 0.15);
+body.dark-mode .btn-delete-course:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    border-color: rgba(239, 68, 68, 0.4);
 }
 
 .gpa-actions {
     display: flex;
     gap: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     flex-wrap: wrap;
 }
 
 .btn-tool-secondary {
-    padding: 10px 18px;
-    border-radius: 8px;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     color: var(--text-dark);
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 12px;
+    font-family: var(--font-mono);
+    font-weight: 600;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: inherit;
-    transition: all 0.2s ease;
+    box-shadow: 0 2px 0 0 var(--border-color);
+    transition: all 0.15s ease;
 }
 
 .btn-tool-secondary:hover {
     border-color: var(--primary);
-    color: var(--primary-light);
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.btn-tool-secondary:active {
+    transform: translateY(1px);
+    box-shadow: none;
 }
 
 .gpa-summary {
-    background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(6, 182, 212, 0.08));
-    border: 1px solid rgba(79, 70, 229, 0.2);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
     align-items: center;
+    box-shadow: 0 2px 0 0 var(--border-color);
 }
 
 .gpa-result-box h4 {
-    font-size: 12px;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
     margin-bottom: 4px;
 }
 
 .gpa-score {
     font-size: 36px;
-    font-weight: 800;
+    font-weight: 700;
+    font-family: var(--font-mono);
     color: var(--primary);
+    font-variant-numeric: tabular-nums;
 }
 
 body.dark-mode .gpa-score {
-    color: var(--primary-light);
+    color: var(--accent-cyan);
 }
 
 .gpa-details {
     font-size: 13px;
     line-height: 1.6;
-    color: var(--text-dark);
+    color: var(--text-muted);
 }
 
 .gpa-badge {
     display: inline-block;
-    padding: 4px 10px;
-    border-radius: 6px;
-    background: #ecfdf5;
-    color: #047857;
-    font-weight: 700;
-    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: var(--status-bg);
+    color: var(--status-color);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 11px;
     margin-top: 6px;
-    border: 1px solid #a7f3d0;
+    border: 1px solid var(--status-border);
 }
 
-body.dark-mode .gpa-badge {
-    background: rgba(16, 185, 129, 0.15);
-    color: #34d399;
-    border-color: rgba(16, 185, 129, 0.3);
-}
-
-/* 2. POMODORO TIMER STYLES */
+/* POMODORO TIMER (Retro Cyber Clock) */
 .pomodoro-card {
     background-color: var(--card-sub-bg);
     border: 1px solid var(--border-color);
@@ -918,10 +839,10 @@ body.dark-mode .gpa-badge {
 
 .timer-modes {
     display: inline-flex;
-    gap: 8px;
+    gap: 6px;
     background-color: var(--card-bg);
-    padding: 6px;
-    border-radius: 999px;
+    padding: 4px;
+    border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
     margin-bottom: 24px;
 }
@@ -929,84 +850,89 @@ body.dark-mode .gpa-badge {
 .timer-mode-btn {
     background: transparent;
     border: none;
-    padding: 8px 18px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-family: var(--font-mono);
+    font-weight: 600;
     color: var(--text-muted);
     cursor: pointer;
-    font-family: inherit;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
 }
 
 .timer-mode-btn.active {
-    background: var(--primary);
-    color: white;
+    background: var(--card-sub-bg);
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+}
+
+body.dark-mode .timer-mode-btn.active {
+    color: var(--accent-cyan);
 }
 
 .timer-display {
     font-size: 64px;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: -0.02em;
     color: var(--text-dark);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     font-variant-numeric: tabular-nums;
 }
 
 .timer-controls {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 18px;
 }
 
 .timer-quote {
-    color: var(--text-muted);
+    color: var(--text-dim);
     font-size: 13px;
-    font-style: italic;
+    font-family: var(--font-mono);
 }
 
-/* 3. TASK TRACKER STYLES */
+/* TASK TRACKER (Cyber Task Terminal) */
 .tasks-card {
     background-color: var(--card-sub-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 24px;
+    padding: 22px;
 }
 
 .task-form {
     display: grid;
     grid-template-columns: 1.5fr 2fr 1.5fr auto;
     gap: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .task-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .task-item {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    padding: 14px 16px;
-    border-radius: 10px;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    transition: all 0.2s ease;
+    box-shadow: 0 1px 0 0 var(--border-color);
+    transition: border-color 0.15s ease;
 }
 
 .task-item:hover {
-    border-color: var(--primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border-color: var(--primary);
 }
 
 .task-item.completed {
-    opacity: 0.6;
+    opacity: 0.55;
     background-color: var(--card-sub-bg);
 }
 
@@ -1022,76 +948,89 @@ body.dark-mode .gpa-badge {
 }
 
 .task-check {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     accent-color: var(--primary);
     cursor: pointer;
 }
 
 .task-course-badge {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--primary-light);
-    background: var(--icon-bg);
-    padding: 2px 8px;
+    font-size: 10px;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--primary);
+    background: var(--card-sub-bg);
+    border: 1px solid var(--border-color);
+    padding: 2px 6px;
     border-radius: 4px;
     display: inline-block;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
+}
+
+body.dark-mode .task-course-badge {
+    color: var(--accent-cyan);
 }
 
 .task-title {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-dark);
 }
 
 .task-meta-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .deadline-badge {
-    font-size: 12px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 6px;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
     white-space: nowrap;
 }
 
 .deadline-urgent {
     background: #fee2e2;
     color: #b91c1c;
+    border: 1px solid #fca5a5;
 }
 .deadline-soon {
     background: #fef3c7;
     color: #b45309;
+    border: 1px solid #fde68a;
 }
 .deadline-safe {
     background: #dcfce7;
     color: #15803d;
+    border: 1px solid #bbf7d0;
 }
 
 body.dark-mode .deadline-urgent {
-    background: rgba(239, 68, 68, 0.2);
+    background: rgba(239, 68, 68, 0.15);
     color: #f87171;
+    border-color: rgba(239, 68, 68, 0.3);
 }
 body.dark-mode .deadline-soon {
-    background: rgba(245, 158, 11, 0.2);
+    background: rgba(245, 158, 11, 0.15);
     color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.3);
 }
 body.dark-mode .deadline-safe {
-    background: rgba(34, 197, 94, 0.2);
+    background: rgba(34, 197, 94, 0.15);
     color: #4ade80;
+    border-color: rgba(34, 197, 94, 0.3);
 }
 
 .btn-delete-task {
     background: none;
     border: none;
-    color: var(--text-muted);
+    color: var(--text-dim);
     cursor: pointer;
-    font-size: 14px;
-    transition: color 0.2s ease;
+    font-size: 13px;
+    transition: color 0.15s ease;
 }
 
 .btn-delete-task:hover {
@@ -1100,26 +1039,27 @@ body.dark-mode .deadline-safe {
 
 .task-empty {
     text-align: center;
-    padding: 30px;
-    color: var(--text-muted);
-    font-size: 14px;
+    padding: 28px;
+    color: var(--text-dim);
+    font-size: 13px;
+    font-family: var(--font-mono);
 }
 
-/* MODAL POPUP KONTAK INTERAKTIF */
+/* 11. MODAL POPUP KONTAK */
 .modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(8px);
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
     padding: 20px;
 }
 
@@ -1133,15 +1073,15 @@ body.dark-mode .deadline-safe {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     width: 100%;
-    max-width: 420px;
-    padding: 28px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    transform: translateY(20px) scale(0.95);
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-width: 400px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(8px);
+    transition: transform 0.2s ease;
 }
 
 .modal-backdrop.active .modal-box {
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
 }
 
 .modal-header {
@@ -1152,116 +1092,134 @@ body.dark-mode .deadline-safe {
 }
 
 .modal-header h3 {
-    font-size: 18px;
-    font-weight: 800;
+    font-size: 15px;
+    font-weight: 700;
     color: var(--text-dark);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .modal-header h3 i {
-    color: var(--primary-light);
+    color: var(--primary);
+}
+
+body.dark-mode .modal-header h3 i {
+    color: var(--accent-cyan);
 }
 
 .modal-close {
     background: none;
     border: none;
-    font-size: 26px;
-    color: var(--text-muted);
+    font-size: 22px;
+    color: var(--text-dim);
     cursor: pointer;
     line-height: 1;
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
 }
 
 .modal-close:hover {
-    color: #ef4444;
+    color: var(--text-dark);
 }
 
 .modal-body p {
     color: var(--text-muted);
-    font-size: 14px;
-    margin-bottom: 20px;
+    font-size: 13px;
+    margin-bottom: 18px;
     line-height: 1.5;
 }
 
 .modal-options {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .modal-option-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 13px 20px;
-    border-radius: var(--radius-md);
-    font-weight: 700;
-    font-size: 14px;
+    gap: 8px;
+    padding: 11px 16px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 13px;
     text-decoration: none;
-    border: none;
+    border: 1px solid var(--border-color);
     cursor: pointer;
     font-family: inherit;
-    transition: all 0.2s ease;
+    box-shadow: 0 2px 0 0 var(--border-color);
+    transition: all 0.15s ease;
 }
 
 .modal-option-btn.wa-btn {
-    background: #22c55e;
-    color: white;
+    background: #16a34a;
+    color: #ffffff;
+    border-color: #15803d;
 }
 .modal-option-btn.wa-btn:hover {
-    background: #16a34a;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(34, 197, 94, 0.3);
+    background: #15803d;
+    transform: translateY(-1px);
 }
 
 .modal-option-btn.email-btn {
     background: var(--card-sub-bg);
     color: var(--text-dark);
-    border: 1px solid var(--border-color);
 }
 .modal-option-btn.email-btn:hover {
-    background: var(--primary);
-    color: white;
+    background: var(--card-bg);
     border-color: var(--primary);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .modal-option-btn.copy-btn {
     background: var(--card-sub-bg);
     color: var(--text-dark);
-    border: 1px solid var(--border-color);
 }
 .modal-option-btn.copy-btn:hover {
     background: var(--card-bg);
-    border-color: var(--primary-light);
-    color: var(--primary-light);
+    border-color: var(--primary);
+    transform: translateY(-1px);
 }
 
-/* FOOTER */
+.modal-option-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* 12. FOOTER */
 footer {
     text-align: center;
-    padding: 30px 20px;
-    color: var(--text-muted);
-    font-size: 13px;
+    padding: 28px 20px;
+    color: var(--text-dim);
+    font-size: 12px;
+    font-family: var(--font-mono);
+    border-top: 1px dashed var(--border-color);
 }
 
-/* RESPONSIVE (MOBILE) */
+/* 13. RESPONSIVE MOBILE */
 @media (max-width: 640px) {
     .profile-card {
-        padding: 30px 20px;
+        padding: 28px 18px;
     }
 
     .navbar {
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
     }
 
     .nav-right {
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
     }
 
     .information {
@@ -1276,7 +1234,7 @@ footer {
         grid-template-columns: 1fr;
         background: var(--card-bg);
         padding: 12px;
-        border-radius: 8px;
+        border-radius: var(--radius-sm);
         border: 1px solid var(--border-color);
     }
 
