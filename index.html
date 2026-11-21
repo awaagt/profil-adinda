@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Mahasiswa - Adinda Najwa Jonep</title>
+    <title>Beranda - Adinda Najwa Jonep</title>
 
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,17 +23,18 @@
     <div class="bg-shape shape-1"></div>
     <div class="bg-shape shape-2"></div>
 
-    <!-- HEADER -->
+    <!-- HEADER & NAVBAR -->
     <header>
         <nav class="navbar">
-            <h2 class="logo"><span class="highlight">My</span>Profile.</h2>
+            <h2 class="logo"><a href="index.html" style="text-decoration:none; color:inherit;"><span class="highlight">My</span>Profile.</a></h2>
 
             <div class="nav-right">
                 <ul class="menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Portofolio</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="tools.html">Tools Mahasiswa</a></li>
+                    <li><a href="projects.html">Portofolio</a></li>
                 </ul>
 
                 <!-- TOMBOL TOGGLE DARK MODE -->
@@ -46,7 +47,7 @@
 
     <!-- PROFIL UTAMA -->
     <main>
-        <section class="profile-card" id="home">
+        <section class="profile-card">
 
             <!-- FOTO / INISIAL DENGAN GLOW RING -->
             <div class="avatar-wrapper">
@@ -74,8 +75,8 @@
                     <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
                 </button>
                 <div class="social-links">
-                    <a href="https://github.com/username_kamu" target="_blank" title="GitHub" class="social-btn"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://linkedin.com/in/username_kamu" target="_blank" title="LinkedIn" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/awaagt" target="_blank" title="GitHub" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" title="LinkedIn" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="https://instagram.com/dindawng" target="_blank" title="Instagram" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
                     <a href="mailto:adindanajwa28@gmail.com" title="Email" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
                 </div>
@@ -110,39 +111,34 @@
                 </div>
             </div>
 
-            <!-- TENTANG SAYA -->
-            <section class="content-section" id="about">
-                <h2><i class="fa-solid fa-user-astronaut"></i> Tentang Saya</h2>
-                <p>
-                    Halo! Saya seorang mahasiswa yang memiliki antusiasme tinggi dalam mempelajari teknologi, desain website, dan pemrograman web. Saat ini saya sedang mendalami dunia <em>front-end development</em> dari nol untuk membangun antarmuka web yang interaktif, rapi, dan mudah digunakan.
-                </p>
-            </section>
+            <!-- JELAJAHI MENU HALAMAN LAINNYA -->
+            <section class="content-section">
+                <h2><i class="fa-solid fa-compass"></i> Menu Halaman</h2>
+                <p class="section-desc">Pilih bagian yang ingin kamu kunjungi untuk mengenal saya lebih jauh atau menggunakan fitur kuliah gratis:</p>
 
-            <!-- KEMAMPUAN -->
-            <section class="content-section" id="skills">
-                <h2><i class="fa-solid fa-code"></i> Keahlian yang Sedang Dipelajari</h2>
-                <div class="skill-list">
-                    <span class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5</span>
-                    <span class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
-                    <span class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript</span>
-                    <span class="skill-pill"><i class="fa-solid fa-palette"></i> Web Design</span>
-                    <span class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git Dasar</span>
-                </div>
-            </section>
-
-            <!-- CONTOH SECTION PORTOFOLIO / PROYEK LATIHAN -->
-            <section class="content-section" id="projects">
-                <h2><i class="fa-solid fa-laptop-code"></i> Proyek Latihan</h2>
                 <div class="project-grid">
                     <div class="project-card">
-                        <div class="project-tag">HTML & CSS</div>
-                        <h4>Personal Website</h4>
-                        <p>Website kartu profil interaktif dengan tema modern dan responsif.</p>
+                        <div class="project-tag">Profil Diri</div>
+                        <h4><a href="about.html" style="text-decoration:none; color:inherit;">Tentang Saya →</a></h4>
+                        <p>Latar belakang pendidikan, minat teknologi, dan perjalanan belajar coding dari nol.</p>
                     </div>
+
                     <div class="project-card">
-                        <div class="project-tag">Coming Soon</div>
-                        <h4>Kalkulator Web</h4>
-                        <p>Aplikasi kalkulator interaktif menggunakan JavaScript dasar.</p>
+                        <div class="project-tag">Kemampuan</div>
+                        <h4><a href="skills.html" style="text-decoration:none; color:inherit;">Keahlian & Skills →</a></h4>
+                        <p>Daftar bahasa pemrograman web, tools desain, serta kemampuan manajemen.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-tag">Fitur Mahasiswa</div>
+                        <h4><a href="tools.html" style="text-decoration:none; color:inherit;">Tools Mahasiswa →</a></h4>
+                        <p>Kalkulator IPK, Pomodoro Focus Timer, dan Tracker Deadline Tugas Kuliah.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-tag">Showcase</div>
+                        <h4><a href="projects.html" style="text-decoration:none; color:inherit;">Portofolio & Proyek →</a></h4>
+                        <p>Daftar karya dan proyek latihan web yang sedang saya kembangkan.</p>
                     </div>
                 </div>
             </section>
@@ -179,12 +175,11 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT UNTUK FITUR INTERAKTIF -->
+    <!-- JAVASCRIPT: THEME & MODAL -->
     <script>
-        // 1. FITUR TOGGLE DARK MODE (DENGAN LOCALSTORAGE)
+        // 1. FITUR TOGGLE DARK MODE (LOCALSTORAGE)
         const themeIcon = document.getElementById('theme-icon');
 
-        // Cek jika pengunjung sebelumnya memilih mode gelap
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
             themeIcon.classList.replace('fa-moon', 'fa-sun');
@@ -220,14 +215,13 @@
             }
         }
 
-        // Menutup modal dengan tombol Escape pada keyboard
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 tutupModal();
             }
         });
 
-        // 3. FITUR SALIN NOMOR KE CLIPBOARD DENGAN FEEDBACK ANIMASI
+        // 3. FITUR SALIN NOMOR WHATSAPP KE CLIPBOARD
         function salinKontak() {
             const nomor = "087778567403";
             navigator.clipboard.writeText(nomor).then(function() {

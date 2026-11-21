@@ -143,10 +143,20 @@ header {
     font-weight: 600;
     font-size: 14px;
     transition: color 0.2s ease;
+    padding-bottom: 2px;
 }
 
-.menu a:hover {
+.menu a:hover,
+.menu a.active {
     color: var(--primary);
+    font-weight: 700;
+    border-bottom: 2px solid var(--primary);
+}
+
+body.dark-mode .menu a:hover,
+body.dark-mode .menu a.active {
+    color: var(--primary-light);
+    border-bottom-color: var(--primary-light);
 }
 
 /* TOMBOL TEMA (DARK / LIGHT) */
@@ -516,6 +526,416 @@ div.avatar {
     color: var(--text-muted);
 }
 
+/* SECTION TOOLS MAHASISWA */
+.section-desc {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: -6px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.tools-tab-nav {
+    display: flex;
+    gap: 10px;
+    background-color: var(--card-sub-bg);
+    padding: 6px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    margin-bottom: 24px;
+    overflow-x: auto;
+}
+
+.tool-tab-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: inherit;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.tool-tab-btn:hover {
+    color: var(--text-dark);
+}
+
+.tool-tab-btn.active {
+    background: var(--card-bg);
+    color: var(--primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+body.dark-mode .tool-tab-btn.active {
+    color: var(--primary-light);
+}
+
+.tool-tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tool-tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 1. KALKULATOR IPK STYLES */
+.gpa-card {
+    background-color: var(--card-sub-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+}
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.course-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.tool-input, .tool-select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+    font-size: 14px;
+    font-family: inherit;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.tool-input:focus, .tool-select:focus {
+    border-color: var(--primary);
+}
+
+.btn-delete-course {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: #fee2e2;
+    color: #ef4444;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.btn-delete-course:hover {
+    background: #ef4444;
+    color: white;
+}
+
+body.dark-mode .btn-delete-course {
+    background: rgba(239, 68, 68, 0.15);
+}
+
+.gpa-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.btn-tool-secondary {
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.btn-tool-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary-light);
+}
+
+.gpa-summary {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(6, 182, 212, 0.08));
+    border: 1px solid rgba(79, 70, 229, 0.2);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: center;
+}
+
+.gpa-result-box h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.gpa-score {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+body.dark-mode .gpa-score {
+    color: var(--primary-light);
+}
+
+.gpa-details {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.gpa-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: #ecfdf5;
+    color: #047857;
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 6px;
+    border: 1px solid #a7f3d0;
+}
+
+body.dark-mode .gpa-badge {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* 2. POMODORO TIMER STYLES */
+.pomodoro-card {
+    background-color: var(--card-sub-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 32px 20px;
+    text-align: center;
+}
+
+.timer-modes {
+    display: inline-flex;
+    gap: 8px;
+    background-color: var(--card-bg);
+    padding: 6px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+.timer-mode-btn {
+    background: transparent;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.timer-mode-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+.timer-display {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.timer-quote {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* 3. TASK TRACKER STYLES */
+.tasks-card {
+    background-color: var(--card-sub-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+}
+
+.task-form {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1.5fr auto;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 14px 16px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+}
+
+.task-item:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.task-item.completed {
+    opacity: 0.6;
+    background-color: var(--card-sub-bg);
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+}
+
+.task-info-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+}
+
+.task-check {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.task-course-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-light);
+    background: var(--icon-bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+.task-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.task-meta-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.deadline-badge {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.deadline-urgent {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+.deadline-soon {
+    background: #fef3c7;
+    color: #b45309;
+}
+.deadline-safe {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+body.dark-mode .deadline-urgent {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+}
+body.dark-mode .deadline-soon {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+}
+body.dark-mode .deadline-safe {
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+}
+
+.btn-delete-task {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.btn-delete-task:hover {
+    color: #ef4444;
+}
+
+.task-empty {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
 /* MODAL POPUP KONTAK INTERAKTIF */
 .modal-backdrop {
     position: fixed;
@@ -681,5 +1101,37 @@ footer {
 
     .project-grid {
         grid-template-columns: 1fr;
+    }
+
+    .course-row {
+        grid-template-columns: 1fr;
+        background: var(--card-bg);
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+
+    .gpa-summary {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .timer-display {
+        font-size: 46px;
+    }
+
+    .task-form {
+        grid-template-columns: 1fr;
+    }
+
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .task-meta-right {
+        width: 100%;
+        justify-content: space-between;
     }
 }

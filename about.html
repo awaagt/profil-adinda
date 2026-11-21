@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Saya - Adinda Najwa Jonep</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND GLOW EFFECT -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <!-- HEADER & NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo"><a href="index.html" style="text-decoration:none; color:inherit;"><span class="highlight">My</span>Profile.</a></h2>
+
+            <div class="nav-right">
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="tools.html">Tools Mahasiswa</a></li>
+                    <li><a href="projects.html">Portofolio</a></li>
+                </ul>
+
+                <!-- TOMBOL TOGGLE DARK MODE -->
+                <button id="theme-toggle" class="theme-btn" title="Ganti Mode Gelap/Terang" onclick="toggleTheme()">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main>
+        <section class="profile-card">
+
+            <div class="content-section">
+                <h2><i class="fa-solid fa-user-astronaut"></i> Tentang Saya</h2>
+                <p>
+                    Halo! Saya <strong>Adinda Najwa Jonep</strong>, seorang mahasiswi aktif Program Studi <strong>Manajemen</strong> (Semester 4) dengan NIM <strong>2023410053</strong>. 
+                </p>
+                <p style="margin-top: 14px;">
+                    Meskipun memiliki latar belakang studi di bidang Manajemen Bisnis, saya memiliki rasa ingin tahu yang sangat besar terhadap dunia teknologi, internet, dan pemrograman website. Saya percaya bahwa perpaduan antara ilmu manajemen dan kemampuan teknis *web development* akan membuka banyak peluang inovasi di era digital saat ini.
+                </p>
+            </div>
+
+            <hr class="separator">
+
+            <div class="content-section">
+                <h2><i class="fa-solid fa-compass-drafting"></i> Perjalanan Belajar Coding</h2>
+                <p>
+                    Saya memulai belajar coding secara mandiri dari nol. Mulai dari memahami bagaimana struktur halaman dibangun menggunakan <strong>HTML5</strong>, bagaimana memperindah tata letak serta warna dengan <strong>CSS3</strong>, hingga menambahkan interaktivitas cerdas menggunakan <strong>JavaScript</strong>.
+                </p>
+                <p style="margin-top: 14px;">
+                    Website yang sedang kamu buka ini adalah bukti nyata dari proses belajar saya, termasuk fitur kalkulator IPK dan sistem manajemen tugas yang sengaja saya kembangkan untuk membantu sesama rekan mahasiswa.
+                </p>
+            </div>
+
+            <hr class="separator">
+
+            <div class="content-section">
+                <h2><i class="fa-solid fa-bullseye"></i> Minat & Fokus Utama</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-tag">Front-End Development</div>
+                        <h4>Web Design & Coding</h4>
+                        <p>Tertarik merancang tampilan antarmuka website yang bersih, responsif di HP, dan ramah pengguna.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-tag">Bisnis & Organisasi</div>
+                        <h4>Manajemen Operasional</h4>
+                        <p>Mempelajari strategi pengelolaan waktu, analisis data bisnis, dan produktivitas tim.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 32px; text-align: center;">
+                <button class="btn-primary" onclick="bukaModal()">
+                    <i class="fa-solid fa-paper-plane"></i> Hubungi Adinda
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 <strong>Adinda Najwa Jonep</strong>. Dibuat dengan cinta & semangat belajar coding.</p>
+    </footer>
+
+    <!-- MODAL POPUP KONTAK INTERAKTIF -->
+    <div id="contact-modal" class="modal-backdrop" onclick="tutupModalLuar(event)">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-address-book"></i> Hubungi Adinda</h3>
+                <button class="modal-close" onclick="tutupModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Silakan pilih media komunikasi yang paling kamu sukai:</p>
+                <div class="modal-options">
+                    <a href="https://wa.me/6287778567403?text=Halo%20Adinda,%20saya%20melihat%20halaman%20About%20website%20kamu!" target="_blank" class="modal-option-btn wa-btn">
+                        <i class="fa-brands fa-whatsapp"></i> Chat via WhatsApp
+                    </a>
+                    <a href="mailto:adindanajwa28@gmail.com" class="modal-option-btn email-btn">
+                        <i class="fa-solid fa-envelope"></i> Kirim Email
+                    </a>
+                    <button class="modal-option-btn copy-btn" onclick="salinKontak()">
+                        <i class="fa-regular fa-copy"></i> <span id="copy-text">Salin Nomor WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT: THEME & MODAL -->
+    <script>
+        const themeIcon = document.getElementById('theme-icon');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+
+            if (isDark) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        const modal = document.getElementById('contact-modal');
+        function bukaModal() { modal.classList.add('active'); }
+        function tutupModal() { modal.classList.remove('active'); }
+        function tutupModalLuar(e) { if (e.target === modal) tutupModal(); }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) tutupModal();
+        });
+
+        function salinKontak() {
+            const nomor = "087778567403";
+            navigator.clipboard.writeText(nomor).then(function() {
+                const copyText = document.getElementById('copy-text');
+                const originalText = copyText.innerText;
+                copyText.innerText = "Nomor Tersalin! ✅";
+                setTimeout(function() { copyText.innerText = originalText; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

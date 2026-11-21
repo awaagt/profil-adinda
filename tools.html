@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools Mahasiswa - Adinda Najwa Jonep</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND GLOW EFFECT -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <!-- HEADER & NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo"><a href="index.html" style="text-decoration:none; color:inherit;"><span class="highlight">My</span>Profile.</a></h2>
+
+            <div class="nav-right">
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="tools.html" class="active">Tools Mahasiswa</a></li>
+                    <li><a href="projects.html">Portofolio</a></li>
+                </ul>
+
+                <!-- TOMBOL TOGGLE DARK MODE -->
+                <button id="theme-toggle" class="theme-btn" title="Ganti Mode Gelap/Terang" onclick="toggleTheme()">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main>
+        <section class="profile-card">
+
+            <div class="content-section">
+                <h2><i class="fa-solid fa-toolbox"></i> Tools Mahasiswa</h2>
+                <p class="section-desc">Kumpulan fitur praktis gratis yang dirancang untuk membantu mahasiswa mengelola perkuliahan, nilai, dan produktivitas sehari-hari:</p>
+
+                <!-- TAB NAVIGATION -->
+                <div class="tools-tab-nav">
+                    <button id="tab-btn-gpa" class="tool-tab-btn active" onclick="switchToolTab('gpa')">
+                        <i class="fa-solid fa-calculator"></i> Kalkulator IPK
+                    </button>
+                    <button id="tab-btn-pomodoro" class="tool-tab-btn" onclick="switchToolTab('pomodoro')">
+                        <i class="fa-solid fa-stopwatch"></i> Focus Timer
+                    </button>
+                    <button id="tab-btn-tasks" class="tool-tab-btn" onclick="switchToolTab('tasks')">
+                        <i class="fa-solid fa-list-check"></i> Deadline Tugas
+                    </button>
+                </div>
+
+                <!-- TOOL 1: KALKULATOR IPK -->
+                <div id="tool-gpa" class="tool-tab-content active">
+                    <div class="gpa-card">
+                        <div id="course-list" class="course-list">
+                            <!-- Course rows dinamis -->
+                        </div>
+                        <div class="gpa-actions">
+                            <button class="btn-tool-secondary" onclick="tambahMatkul()">
+                                <i class="fa-solid fa-plus"></i> Tambah Matkul
+                            </button>
+                            <button class="btn-tool-secondary" onclick="resetMatkul()">
+                                <i class="fa-solid fa-rotate-left"></i> Reset
+                            </button>
+                        </div>
+                        <div class="gpa-summary">
+                            <div class="gpa-result-box">
+                                <h4>Prediksi Indeks Prestasi Semester (IPS)</h4>
+                                <div id="gpa-score" class="gpa-score">3.83</div>
+                            </div>
+                            <div class="gpa-details">
+                                <p>Total SKS diambil: <strong id="total-sks">9 SKS</strong></p>
+                                <div id="sks-limit-badge" class="gpa-badge">
+                                    🌟 Kamu berhak ambil 24 SKS semester depan!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 2: POMODORO FOCUS TIMER -->
+                <div id="tool-pomodoro" class="tool-tab-content">
+                    <div class="pomodoro-card">
+                        <div class="timer-modes">
+                            <button id="mode-pomodoro" class="timer-mode-btn active" onclick="setTimerMode('pomodoro', 25)">Fokus (25m)</button>
+                            <button id="mode-short" class="timer-mode-btn" onclick="setTimerMode('short', 5)">Istirahat (5m)</button>
+                            <button id="mode-long" class="timer-mode-btn" onclick="setTimerMode('long', 15)">Istirahat Panjang (15m)</button>
+                        </div>
+                        <div id="timer-display" class="timer-display">25:00</div>
+                        <div class="timer-controls">
+                            <button id="btn-timer-start" class="btn-primary" onclick="toggleTimer()">
+                                <i class="fa-solid fa-play"></i> Mulai
+                            </button>
+                            <button class="btn-tool-secondary" onclick="resetTimer()">
+                                <i class="fa-solid fa-arrow-rotate-right"></i> Reset
+                            </button>
+                        </div>
+                        <p class="timer-quote">"Fokus 25 menit tanpa distraksi HP untuk hasil belajar maksimal."</p>
+                    </div>
+                </div>
+
+                <!-- TOOL 3: TRACKER DEADLINE TUGAS -->
+                <div id="tool-tasks" class="tool-tab-content">
+                    <div class="tasks-card">
+                        <form id="task-form" class="task-form" onsubmit="tambahTugas(event)">
+                            <input type="text" id="task-course" class="tool-input" placeholder="Mata Kuliah (misal: Manajemen)" required>
+                            <input type="text" id="task-name" class="tool-input" placeholder="Judul Tugas (misal: Makalah Bab 3)" required>
+                            <input type="date" id="task-date" class="tool-input" required>
+                            <button type="submit" class="btn-primary">
+                                <i class="fa-solid fa-plus"></i> Tambah
+                            </button>
+                        </form>
+                        <div id="task-list" class="task-list">
+                            <!-- Tasks dari LocalStorage -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 <strong>Adinda Najwa Jonep</strong>. Dibuat dengan cinta & semangat belajar coding.</p>
+    </footer>
+
+    <!-- JAVASCRIPT: THEME & TOOLS LOGIC -->
+    <script>
+        // 1. FITUR THEME DARK MODE
+        const themeIcon = document.getElementById('theme-icon');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+
+            if (isDark) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // 2. TAB SWITCHER
+        function switchToolTab(tabKey) {
+            document.querySelectorAll('.tool-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tool-tab-content').forEach(content => content.classList.remove('active'));
+
+            document.getElementById('tab-btn-' + tabKey).classList.add('active');
+            document.getElementById('tool-' + tabKey).classList.add('active');
+        }
+
+        // 3. KALKULATOR IPK
+        let courses = [
+            { name: "Pengantar Manajemen", sks: 3, grade: 4.0 },
+            { name: "Statistika Bisnis", sks: 3, grade: 3.5 },
+            { name: "Akuntansi Dasar", sks: 3, grade: 4.0 }
+        ];
+
+        function renderCourses() {
+            const courseListEl = document.getElementById('course-list');
+            if (!courseListEl) return;
+            courseListEl.innerHTML = '';
+
+            courses.forEach((c, idx) => {
+                const row = document.createElement('div');
+                row.className = 'course-row';
+                row.innerHTML = `
+                    <input type="text" class="tool-input" placeholder="Nama Mata Kuliah" value="${c.name}" oninput="updateCourse(${idx}, 'name', this.value)">
+                    <select class="tool-select" onchange="updateCourse(${idx}, 'sks', parseFloat(this.value))">
+                        <option value="1" ${c.sks === 1 ? 'selected' : ''}>1 SKS</option>
+                        <option value="2" ${c.sks === 2 ? 'selected' : ''}>2 SKS</option>
+                        <option value="3" ${c.sks === 3 ? 'selected' : ''}>3 SKS</option>
+                        <option value="4" ${c.sks === 4 ? 'selected' : ''}>4 SKS</option>
+                        <option value="6" ${c.sks === 6 ? 'selected' : ''}>6 SKS</option>
+                    </select>
+                    <select class="tool-select" onchange="updateCourse(${idx}, 'grade', parseFloat(this.value))">
+                        <option value="4.0" ${c.grade === 4.0 ? 'selected' : ''}>A (4.0)</option>
+                        <option value="3.75" ${c.grade === 3.75 ? 'selected' : ''}>A- (3.75)</option>
+                        <option value="3.5" ${c.grade === 3.5 ? 'selected' : ''}>B+ (3.5)</option>
+                        <option value="3.0" ${c.grade === 3.0 ? 'selected' : ''}>B (3.0)</option>
+                        <option value="2.75" ${c.grade === 2.75 ? 'selected' : ''}>B- (2.75)</option>
+                        <option value="2.5" ${c.grade === 2.5 ? 'selected' : ''}>C+ (2.5)</option>
+                        <option value="2.0" ${c.grade === 2.0 ? 'selected' : ''}>C (2.0)</option>
+                        <option value="1.0" ${c.grade === 1.0 ? 'selected' : ''}>D (1.0)</option>
+                        <option value="0.0" ${c.grade === 0.0 ? 'selected' : ''}>E (0.0)</option>
+                    </select>
+                    <button class="btn-delete-course" title="Hapus Matkul" onclick="hapusMatkul(${idx})">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                `;
+                courseListEl.appendChild(row);
+            });
+
+            calculateGPA();
+        }
+
+        function updateCourse(index, field, value) {
+            courses[index][field] = value;
+            calculateGPA();
+        }
+
+        function tambahMatkul() {
+            courses.push({ name: "", sks: 3, grade: 4.0 });
+            renderCourses();
+        }
+
+        function hapusMatkul(index) {
+            if (courses.length <= 1) {
+                alert("Minimal harus ada 1 mata kuliah.");
+                return;
+            }
+            courses.splice(index, 1);
+            renderCourses();
+        }
+
+        function resetMatkul() {
+            courses = [
+                { name: "Pengantar Manajemen", sks: 3, grade: 4.0 },
+                { name: "Statistika Bisnis", sks: 3, grade: 3.5 },
+                { name: "Akuntansi Dasar", sks: 3, grade: 4.0 }
+            ];
+            renderCourses();
+        }
+
+        function calculateGPA() {
+            let totalSks = 0;
+            let totalBobot = 0;
+
+            courses.forEach(c => {
+                totalSks += c.sks;
+                totalBobot += (c.sks * c.grade);
+            });
+
+            const ips = totalSks > 0 ? (totalBobot / totalSks).toFixed(2) : "0.00";
+            document.getElementById('gpa-score').innerText = ips;
+            document.getElementById('total-sks').innerText = totalSks + " SKS";
+
+            const badgeEl = document.getElementById('sks-limit-badge');
+            const ipsNum = parseFloat(ips);
+
+            if (ipsNum >= 3.00) {
+                badgeEl.innerText = "🌟 Hebat! Kamu berhak ambil 24 SKS semester depan (Maksimal)";
+            } else if (ipsNum >= 2.50) {
+                badgeEl.innerText = "👍 Bagus! Kamu berhak ambil 21 SKS semester depan";
+            } else if (ipsNum >= 2.00) {
+                badgeEl.innerText = "⚠️ Jatah semester depan: 18 SKS (Perlu evaluasi belajar)";
+            } else {
+                badgeEl.innerText = "❗ Jatah semester depan: 15 SKS (Harap konsultasi dosen PA)";
+            }
+        }
+
+        // 4. POMODORO TIMER
+        let timerSeconds = 25 * 60;
+        let timerInterval = null;
+        let isTimerRunning = false;
+        let currentModeMinutes = 25;
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timerSeconds / 60);
+            const secs = timerSeconds % 60;
+            document.getElementById('timer-display').innerText = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function setTimerMode(modeKey, minutes) {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            document.getElementById('btn-timer-start').innerHTML = '<i class="fa-solid fa-play"></i> Mulai';
+
+            document.querySelectorAll('.timer-mode-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('mode-' + modeKey).classList.add('active');
+
+            currentModeMinutes = minutes;
+            timerSeconds = minutes * 60;
+            updateTimerDisplay();
+        }
+
+        function toggleTimer() {
+            const startBtn = document.getElementById('btn-timer-start');
+            if (isTimerRunning) {
+                clearInterval(timerInterval);
+                isTimerRunning = false;
+                startBtn.innerHTML = '<i class="fa-solid fa-play"></i> Lanjutkan';
+            } else {
+                isTimerRunning = true;
+                startBtn.innerHTML = '<i class="fa-solid fa-pause"></i> Jeda';
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        updateTimerDisplay();
+                    } else {
+                        clearInterval(timerInterval);
+                        isTimerRunning = false;
+                        startBtn.innerHTML = '<i class="fa-solid fa-play"></i> Mulai';
+                        bunyikanBel();
+                        alert("Waktu sesi selesai! Istirahatlah sejenak.");
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            document.getElementById('btn-timer-start').innerHTML = '<i class="fa-solid fa-play"></i> Mulai';
+            timerSeconds = currentModeMinutes * 60;
+            updateTimerDisplay();
+        }
+
+        function bunyikanBel() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+                gain.gain.setValueAtTime(0.3, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 1);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 1);
+            } catch (e) {
+                console.log("Audio not supported");
+            }
+        }
+
+        // 5. TRACKER DEADLINE TUGAS (LOCALSTORAGE)
+        let studentTasks = JSON.parse(localStorage.getItem('student_tasks')) || [
+            { id: 1, course: "Manajemen", title: "Makalah Analisis SWOT Perusahaan", date: "2026-11-28", completed: false }
+        ];
+
+        function renderTasks() {
+            const listEl = document.getElementById('task-list');
+            if (!listEl) return;
+            listEl.innerHTML = '';
+
+            if (studentTasks.length === 0) {
+                listEl.innerHTML = '<div class="task-empty"><i class="fa-regular fa-calendar-check" style="font-size: 28px; margin-bottom: 8px; display:block;"></i>Belum ada tugas tercatat. Tambahkan tugas kuliahmu di atas!</div>';
+                return;
+            }
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            studentTasks.forEach(task => {
+                const taskDate = new Date(task.date);
+                taskDate.setHours(0, 0, 0, 0);
+                const diffTime = taskDate - today;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                let badgeClass = 'deadline-safe';
+                let badgeText = `📅 Sisa ${diffDays} Hari`;
+
+                if (diffDays < 0) {
+                    badgeClass = 'deadline-urgent';
+                    badgeText = '⚠️ Terlewat';
+                } else if (diffDays === 0) {
+                    badgeClass = 'deadline-urgent';
+                    badgeText = '🚨 Deadline Hari Ini!';
+                } else if (diffDays === 1) {
+                    badgeClass = 'deadline-urgent';
+                    badgeText = '⏳ Besok Deadline!';
+                } else if (diffDays <= 3) {
+                    badgeClass = 'deadline-soon';
+                    badgeText = `⚡ Sisa ${diffDays} Hari`;
+                }
+
+                const item = document.createElement('div');
+                item.className = `task-item ${task.completed ? 'completed' : ''}`;
+                item.innerHTML = `
+                    <div class="task-info-left">
+                        <input type="checkbox" class="task-check" ${task.completed ? 'checked' : ''} onchange="toggleTaskDone(${task.id})">
+                        <div>
+                            <span class="task-course-badge">${task.course}</span>
+                            <div class="task-title">${task.title}</div>
+                        </div>
+                    </div>
+                    <div class="task-meta-right">
+                        <span class="deadline-badge ${badgeClass}">${badgeText}</span>
+                        <button class="btn-delete-task" title="Hapus Tugas" onclick="hapusTugas(${task.id})">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+                listEl.appendChild(item);
+            });
+        }
+
+        function tambahTugas(e) {
+            e.preventDefault();
+            const course = document.getElementById('task-course').value.trim();
+            const name = document.getElementById('task-name').value.trim();
+            const date = document.getElementById('task-date').value;
+
+            if (!course || !name || !date) return;
+
+            studentTasks.push({
+                id: Date.now(),
+                course: course,
+                title: name,
+                date: date,
+                completed: false
+            });
+
+            localStorage.setItem('student_tasks', JSON.stringify(studentTasks));
+            document.getElementById('task-form').reset();
+            renderTasks();
+        }
+
+        function toggleTaskDone(id) {
+            studentTasks = studentTasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
+            localStorage.setItem('student_tasks', JSON.stringify(studentTasks));
+            renderTasks();
+        }
+
+        function hapusTugas(id) {
+            studentTasks = studentTasks.filter(t => t.id !== id);
+            localStorage.setItem('student_tasks', JSON.stringify(studentTasks));
+            renderTasks();
+        }
+
+        renderCourses();
+        renderTasks();
+    </script>
+</body>
+</html>

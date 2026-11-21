@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keahlian - Adinda Najwa Jonep</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND GLOW EFFECT -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <!-- HEADER & NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo"><a href="index.html" style="text-decoration:none; color:inherit;"><span class="highlight">My</span>Profile.</a></h2>
+
+            <div class="nav-right">
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html" class="active">Skills</a></li>
+                    <li><a href="tools.html">Tools Mahasiswa</a></li>
+                    <li><a href="projects.html">Portofolio</a></li>
+                </ul>
+
+                <!-- TOMBOL TOGGLE DARK MODE -->
+                <button id="theme-toggle" class="theme-btn" title="Ganti Mode Gelap/Terang" onclick="toggleTheme()">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main>
+        <section class="profile-card">
+
+            <div class="content-section">
+                <h2><i class="fa-solid fa-code"></i> Keahlian & Teknologi Web</h2>
+                <p class="section-desc">Keterampilan teknis yang sedang saya tekuni untuk membangun halaman website yang interaktif dan nyaman diakses:</p>
+                <div class="skill-list">
+                    <span class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5 (Struktur Web)</span>
+                    <span class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS3 (Styling & Animasi)</span>
+                    <span class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript (Interaktivitas & DOM)</span>
+                    <span class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git & GitHub (Version Control)</span>
+                    <span class="skill-pill"><i class="fa-solid fa-mobile-screen"></i> Responsive Web Design</span>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="content-section">
+                <h2><i class="fa-solid fa-palette"></i> Desain & Tools Kerja</h2>
+                <p class="section-desc">Aplikasi dan perangkat lunak yang biasa saya gunakan dalam proses desain antarmuka dan penulisan kode:</p>
+                <div class="skill-list">
+                    <span class="skill-pill"><i class="fa-solid fa-pen-nib"></i> UI/UX Design Dasar</span>
+                    <span class="skill-pill"><i class="fa-brands fa-figma"></i> Figma</span>
+                    <span class="skill-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Canva</span>
+                    <span class="skill-pill"><i class="fa-solid fa-terminal"></i> VS Code (Code Editor)</span>
+                    <span class="skill-pill"><i class="fa-solid fa-cloud"></i> GitHub Pages (Deploy)</span>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="content-section">
+                <h2><i class="fa-solid fa-briefcase"></i> Kemampuan Manajemen & Soft Skills</h2>
+                <p class="section-desc">Keahlian non-teknis yang saya peroleh dari studi di jurusan Manajemen:</p>
+                <div class="skill-list">
+                    <span class="skill-pill"><i class="fa-regular fa-clock"></i> Manajemen Waktu & Prioritas</span>
+                    <span class="skill-pill"><i class="fa-solid fa-chart-line"></i> Analisis Kebutuhan Bisnis</span>
+                    <span class="skill-pill"><i class="fa-solid fa-users"></i> Kolaborasi & Kerjasama Tim</span>
+                    <span class="skill-pill"><i class="fa-solid fa-lightbulb"></i> Problem Solving & Kreativitas</span>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div class="content-section">
+                <h2><i class="fa-solid fa-graduation-cap"></i> Target Belajar Selanjutnya</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-tag">Target Q1</div>
+                        <h4>Framework CSS (Tailwind / Bootstrap)</h4>
+                        <p>Mempercepat pembuatan antarmuka web modern dengan sistem utility-class.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-tag">Target Q2</div>
+                        <h4>JavaScript Lanjutan & REST API</h4>
+                        <p>Menghubungkan website dengan sumber data publik seperti cuaca, berita, atau kurs mata uang.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 <strong>Adinda Najwa Jonep</strong>. Dibuat dengan cinta & semangat belajar coding.</p>
+    </footer>
+
+    <!-- JAVASCRIPT: THEME -->
+    <script>
+        const themeIcon = document.getElementById('theme-icon');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+
+            if (isDark) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+    </script>
+</body>
+</html>

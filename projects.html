@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Adinda Najwa Jonep</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND GLOW EFFECT -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <!-- HEADER & NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo"><a href="index.html" style="text-decoration:none; color:inherit;"><span class="highlight">My</span>Profile.</a></h2>
+
+            <div class="nav-right">
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="tools.html">Tools Mahasiswa</a></li>
+                    <li><a href="projects.html" class="active">Portofolio</a></li>
+                </ul>
+
+                <!-- TOMBOL TOGGLE DARK MODE -->
+                <button id="theme-toggle" class="theme-btn" title="Ganti Mode Gelap/Terang" onclick="toggleTheme()">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main>
+        <section class="profile-card">
+
+            <div class="content-section">
+                <h2><i class="fa-solid fa-laptop-code"></i> Portofolio & Proyek Latihan</h2>
+                <p class="section-desc">Berikut adalah beberapa proyek web interaktif yang telah dan sedang saya kembangkan sebagai sarana mengasah kemampuan pemrograman:</p>
+
+                <div class="project-grid">
+                    <!-- PROYEK 1 -->
+                    <div class="project-card">
+                        <div class="project-tag">HTML5 • CSS3 • JavaScript</div>
+                        <h4>Personal Profile Multi-Page Website</h4>
+                        <p style="margin-bottom: 12px;">Website portofolio pribadi modern dengan navigasi multi-halaman terpisah, tema Dark Mode otomatis dengan LocalStorage, dan layout responsif untuk smartphone.</p>
+                        <a href="index.html" class="btn-tool-secondary" style="font-size: 12px; text-decoration: none;">
+                            <i class="fa-solid fa-eye"></i> Lihat Beranda
+                        </a>
+                    </div>
+
+                    <!-- PROYEK 2 -->
+                    <div class="project-card">
+                        <div class="project-tag">Web App • Productivity</div>
+                        <h4>Student Productivity Suite</h4>
+                        <p style="margin-bottom: 12px;">Aplikasi web perkuliahan gratis yang mencakup Kalkulator IPK dengan prediksi batas SKS, Pomodoro Focus Timer dengan alarm suara, serta Task Deadline Tracker.</p>
+                        <a href="tools.html" class="btn-tool-secondary" style="font-size: 12px; text-decoration: none;">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Tools
+                        </a>
+                    </div>
+
+                    <!-- PROYEK 3 -->
+                    <div class="project-card">
+                        <div class="project-tag">Coming Soon</div>
+                        <h4>Kalkulator BEP & Keuangan Bisnis</h4>
+                        <p style="margin-bottom: 12px;">Alat simulasi perhitungan Break Even Point (titik impas) dan estimasi margin laba bersih untuk pelaku UMKM dan tugas kuliah manajemen.</p>
+                        <span class="gpa-badge" style="background:#f1f5f9; color:#64748b; border: 1px solid #cbd5e1;">Sedang Dikerjakan</span>
+                    </div>
+
+                    <!-- PROYEK 4 -->
+                    <div class="project-card">
+                        <div class="project-tag">UI/UX Showcase</div>
+                        <h4>Desain Mockup Web E-Commerce</h4>
+                        <p style="margin-bottom: 12px;">Eksplorasi antarmuka toko online ramah seluler yang dirancang dengan Figma untuk kebutuhan mata kuliah Manajemen Pemasaran.</p>
+                        <span class="gpa-badge" style="background:#ede9fe; color:#6366f1; border: 1px solid #c7d2fe;">Figma Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <div style="text-align: center; padding: 20px 0;">
+                <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">Tertarik Berkolaborasi atau Diskusi Proyek?</h3>
+                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Jangan ragu untuk menghubungi saya melalui WhatsApp atau media sosial.</p>
+                <button class="btn-primary" onclick="bukaModal()">
+                    <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 <strong>Adinda Najwa Jonep</strong>. Dibuat dengan cinta & semangat belajar coding.</p>
+    </footer>
+
+    <!-- MODAL POPUP KONTAK INTERAKTIF -->
+    <div id="contact-modal" class="modal-backdrop" onclick="tutupModalLuar(event)">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-address-book"></i> Hubungi Adinda</h3>
+                <button class="modal-close" onclick="tutupModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Silakan pilih media komunikasi yang paling kamu sukai:</p>
+                <div class="modal-options">
+                    <a href="https://wa.me/6287778567403?text=Halo%20Adinda,%20saya%20melihat%20halaman%20Portofolio%20kamu!" target="_blank" class="modal-option-btn wa-btn">
+                        <i class="fa-brands fa-whatsapp"></i> Chat via WhatsApp
+                    </a>
+                    <a href="mailto:adindanajwa28@gmail.com" class="modal-option-btn email-btn">
+                        <i class="fa-solid fa-envelope"></i> Kirim Email
+                    </a>
+                    <button class="modal-option-btn copy-btn" onclick="salinKontak()">
+                        <i class="fa-regular fa-copy"></i> <span id="copy-text">Salin Nomor WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT: THEME & MODAL -->
+    <script>
+        const themeIcon = document.getElementById('theme-icon');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+
+            if (isDark) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        const modal = document.getElementById('contact-modal');
+        function bukaModal() { modal.classList.add('active'); }
+        function tutupModal() { modal.classList.remove('active'); }
+        function tutupModalLuar(e) { if (e.target === modal) tutupModal(); }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) tutupModal();
+        });
+
+        function salinKontak() {
+            const nomor = "087778567403";
+            navigator.clipboard.writeText(nomor).then(function() {
+                const copyText = document.getElementById('copy-text');
+                const originalText = copyText.innerText;
+                copyText.innerText = "Nomor Tersalin! ✅";
+                setTimeout(function() { copyText.innerText = originalText; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
