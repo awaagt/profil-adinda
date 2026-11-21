@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Mahasiswa - Adinda Najwa Jonep</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND GLOW EFFECT -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo"><span class="highlight">My</span>Profile.</h2>
+
+            <div class="nav-right">
+                <ul class="menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Portofolio</a></li>
+                </ul>
+
+                <!-- TOMBOL TOGGLE DARK MODE -->
+                <button id="theme-toggle" class="theme-btn" title="Ganti Mode Gelap/Terang" onclick="toggleTheme()">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- PROFIL UTAMA -->
+    <main>
+        <section class="profile-card" id="home">
+
+            <!-- FOTO / INISIAL DENGAN GLOW RING -->
+            <div class="avatar-wrapper">
+                <img src="foto.jpg" alt="Foto Adinda Najwa" class="avatar" onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';">
+                <div id="avatar-fallback" class="avatar" style="display: none;">
+                    AJ
+                </div>
+            </div>
+
+            <h1 translate="no">Adinda Najwa Jonep</h1>
+
+            <p class="subtitle">
+                Mahasiswa Manajemen <span class="divider">•</span> Calon Web Developer
+            </p>
+
+            <!-- STATUS BADGE DENGAN INDIKATOR BERKEDIP -->
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Mahasiswa Aktif
+            </div>
+
+            <!-- TOMBOL AKSI & MEDSOS -->
+            <div class="cta-actions">
+                <button class="btn-primary" onclick="bukaModal()">
+                    <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
+                </button>
+                <div class="social-links">
+                    <a href="https://github.com/username_kamu" target="_blank" title="GitHub" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com/in/username_kamu" target="_blank" title="LinkedIn" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/dindawng" target="_blank" title="Instagram" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:adindanajwa28@gmail.com" title="Email" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <hr class="separator">
+
+            <!-- INFORMASI MAHASISWA DENGAN IKON -->
+            <div class="information">
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-regular fa-id-card"></i></div>
+                    <div>
+                        <h3>NIM</h3>
+                        <p>2023410053</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div>
+                        <h3>Program Studi</h3>
+                        <p>Manajemen</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-regular fa-calendar-days"></i></div>
+                    <div>
+                        <h3>Semester</h3>
+                        <p>Semester 4</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TENTANG SAYA -->
+            <section class="content-section" id="about">
+                <h2><i class="fa-solid fa-user-astronaut"></i> Tentang Saya</h2>
+                <p>
+                    Halo! Saya seorang mahasiswa yang memiliki antusiasme tinggi dalam mempelajari teknologi, desain website, dan pemrograman web. Saat ini saya sedang mendalami dunia <em>front-end development</em> dari nol untuk membangun antarmuka web yang interaktif, rapi, dan mudah digunakan.
+                </p>
+            </section>
+
+            <!-- KEMAMPUAN -->
+            <section class="content-section" id="skills">
+                <h2><i class="fa-solid fa-code"></i> Keahlian yang Sedang Dipelajari</h2>
+                <div class="skill-list">
+                    <span class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5</span>
+                    <span class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                    <span class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript</span>
+                    <span class="skill-pill"><i class="fa-solid fa-palette"></i> Web Design</span>
+                    <span class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git Dasar</span>
+                </div>
+            </section>
+
+            <!-- CONTOH SECTION PORTOFOLIO / PROYEK LATIHAN -->
+            <section class="content-section" id="projects">
+                <h2><i class="fa-solid fa-laptop-code"></i> Proyek Latihan</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-tag">HTML & CSS</div>
+                        <h4>Personal Website</h4>
+                        <p>Website kartu profil interaktif dengan tema modern dan responsif.</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-tag">Coming Soon</div>
+                        <h4>Kalkulator Web</h4>
+                        <p>Aplikasi kalkulator interaktif menggunakan JavaScript dasar.</p>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 <strong>Adinda Najwa Jonep</strong>. Dibuat dengan cinta & semangat belajar coding.</p>
+    </footer>
+
+    <!-- MODAL POPUP KONTAK INTERAKTIF -->
+    <div id="contact-modal" class="modal-backdrop" onclick="tutupModalLuar(event)">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-address-book"></i> Hubungi Adinda</h3>
+                <button class="modal-close" onclick="tutupModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Silakan pilih media komunikasi yang paling kamu sukai:</p>
+                <div class="modal-options">
+                    <a href="https://wa.me/6287778567403?text=Halo%20Adinda,%20saya%20melihat%20website%20profil%20kamu!" target="_blank" class="modal-option-btn wa-btn">
+                        <i class="fa-brands fa-whatsapp"></i> Chat via WhatsApp
+                    </a>
+                    <a href="mailto:adindanajwa28@gmail.com" class="modal-option-btn email-btn">
+                        <i class="fa-solid fa-envelope"></i> Kirim Email
+                    </a>
+                    <button class="modal-option-btn copy-btn" onclick="salinKontak()">
+                        <i class="fa-regular fa-copy"></i> <span id="copy-text">Salin Nomor WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT UNTUK FITUR INTERAKTIF -->
+    <script>
+        // 1. FITUR TOGGLE DARK MODE (DENGAN LOCALSTORAGE)
+        const themeIcon = document.getElementById('theme-icon');
+
+        // Cek jika pengunjung sebelumnya memilih mode gelap
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+
+            if (isDark) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // 2. FITUR POPUP MODAL KONTAK
+        const modal = document.getElementById('contact-modal');
+
+        function bukaModal() {
+            modal.classList.add('active');
+        }
+
+        function tutupModal() {
+            modal.classList.remove('active');
+        }
+
+        function tutupModalLuar(e) {
+            if (e.target === modal) {
+                tutupModal();
+            }
+        }
+
+        // Menutup modal dengan tombol Escape pada keyboard
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                tutupModal();
+            }
+        });
+
+        // 3. FITUR SALIN NOMOR KE CLIPBOARD DENGAN FEEDBACK ANIMASI
+        function salinKontak() {
+            const nomor = "087778567403";
+            navigator.clipboard.writeText(nomor).then(function() {
+                const copyText = document.getElementById('copy-text');
+                const originalText = copyText.innerText;
+                copyText.innerText = "Nomor Tersalin! ✅";
+                setTimeout(function() {
+                    copyText.innerText = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
