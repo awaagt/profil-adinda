@@ -381,6 +381,10 @@ div.avatar {
     margin: 0 6px;
 }
 
+body.dark-mode .subtitle .divider {
+    color: #475569;
+}
+
 /* STATUS BADGE DENGAN ANIMASI PULSE & ENTRANCE */
 .status-badge {
     display: inline-flex;
